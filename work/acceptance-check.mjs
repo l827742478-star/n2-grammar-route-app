@@ -3,10 +3,13 @@ import { readFile } from 'node:fs/promises';
 import { GRAMMAR_POINTS } from '../src/content/grammar.js';
 import { createDefaultState, getWeakPoints, loadState, recordAnswer } from '../src/state.js';
 import { parseRoute } from '../src/router.js';
+import { getQuestionSet } from '../src/content/questions.js';
 
 const requiredFiles = ['index.html', 'styles.css', 'src/app.js', 'src/render.js', 'src/interactions.js', 'src/state.js', 'src/router.js'];
 for (const file of requiredFiles) await readFile(new URL(`../${file}`, import.meta.url));
 assert.equal(GRAMMAR_POINTS.length, 233);
+assert.equal(GRAMMAR_POINTS.reduce((sum, point) => sum + getQuestionSet(point).length, 0), 1165);
+assert.deepEqual(new Set(getQuestionSet(GRAMMAR_POINTS[0]).map((question) => question.focus)), new Set(['语境选用', '近义辨析', '语义判断', '用法诊断', '句子重组']));
 assert.equal(createDefaultState(GRAMMAR_POINTS).profiles.length, 1);
 const fresh = createDefaultState(GRAMMAR_POINTS);
 assert.equal(getWeakPoints(fresh, GRAMMAR_POINTS).length, 0);
@@ -14,4 +17,4 @@ const answered = recordAnswer(fresh, { pointId: GRAMMAR_POINTS[0].id, questionId
 assert.equal(getWeakPoints(answered, GRAMMAR_POINTS)[0].id, GRAMMAR_POINTS[0].id);
 assert.deepEqual(parseRoute('#/practice/n2-001/2').name, 'practice');
 assert.match(await readFile(new URL('../README.md', import.meta.url), 'utf8'), /233/);
-console.log('acceptance-check: PASS (artifact files, count, fresh empty weak, wrong-answer weak, route contract)');
+console.log('acceptance-check: PASS (artifact files, 233 levels, 1165 questions, fresh empty weak, wrong-answer weak, route contract)');
