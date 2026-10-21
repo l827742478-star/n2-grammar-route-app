@@ -1,8 +1,8 @@
-import { getQuestionSet, isAnswerCorrect } from './content/questions.js';
+import { getQuestionSet, isAnswerCorrect } from './content/questions.js?版本=20261021c';
 import { findPointById } from './content/content-utils.js';
 import { addProfile, recordAnswer, resetProfile, saveState, switchProfile } from './state.js';
 import { makeRoute } from './router.js';
-import { escapeHTML } from './render.js?界面=中文&版本=20261021b';
+import { escapeHTML } from './render.js?界面=中文&版本=20261021c';
 
 export function bindInteractions(root, context) {
   const { catalog, getState, setState, getRoute, setRoute, ui, rerender } = context;
