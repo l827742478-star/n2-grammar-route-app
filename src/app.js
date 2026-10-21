@@ -1,8 +1,8 @@
-import { GRAMMAR_POINTS } from './content/grammar.js';
+import { GRAMMAR_POINTS } from './content/grammar.js?版本=20261021c';
 import { loadState, saveState } from './state.js';
 import { parseRoute } from './router.js';
-import { bindInteractions } from './interactions.js?界面=中文&版本=20261021b';
-import { renderApp } from './render.js?界面=中文&版本=20261021b';
+import { bindInteractions } from './interactions.js?界面=中文&版本=20261021c';
+import { renderApp } from './render.js?界面=中文&版本=20261021c';
 
 const root = document.querySelector('#app');
 const state = loadState(window.localStorage, GRAMMAR_POINTS);
