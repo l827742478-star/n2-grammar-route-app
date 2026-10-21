@@ -20,7 +20,9 @@ python3 -m http.server 4183 --bind 127.0.0.1
 - `#/weak` 复盘台：错误题和低掌握语法点
 - `#/leaderboard` 本地榜单：切换、添加和重置学习档案
 - `#/point/n2-001` 研究卡：接续、精讲、例句、易错点和专项入口
-- `#/practice/n2-001` 专项闯关：选择、填空、排序和即时解析
+- `#/practice/n2-001` 专项闯关：语境选用、近义辨析、语义判断、用法诊断、句子重组和即时解析
+
+每个关卡固定 5 题，共 **1165 题**。干扰项优先从同一语法模块、相近含义和相近接续中挑选；四个答案位置全库均衡，不靠固定位置猜题。
 
 ## 数据和重置
 
@@ -35,6 +37,7 @@ localStorage.removeItem('n2-grammar-route-state-v1'); location.reload();
 ```bash
 node tests/content-check.mjs
 node tests/question-check.mjs
+node tests/question-quality-check.mjs
 node tests/state-check.mjs
 node tests/app-smoke.mjs
 node tests/layout-check.mjs
@@ -43,4 +46,4 @@ node work/acceptance-check.mjs
 
 浏览器验收需要检查：桌面和窄屏无横向溢出；答错后薄弱页出现对应语法点；答对后刷新页面进度保留；添加/切换/重置档案有效；浏览器控制台无错误。
 
-本交付仅保存在当前本地项目目录，未发布、未推送、未连接外部账号。
+公开版本：[GitHub Pages](https://l827742478-star.github.io/n2-grammar-route-app/)；源码仓库：[GitHub](https://github.com/l827742478-star/n2-grammar-route-app)。
