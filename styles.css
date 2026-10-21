@@ -157,7 +157,7 @@ p { color: var(--sub); line-height: 1.65; }
 
 /* 闯关页 */
 .practice-top { display: grid; grid-template-columns: 1fr auto auto; gap: 8px; align-items: center; margin-bottom: 10px; color: var(--sub); font-size: 11px; }
-.practice-card { display: grid; grid-template-columns: minmax(0, 1fr) 205px; overflow: hidden; }
+.practice-card { display: block; overflow: hidden; }
 .practice-question { min-width: 0; padding: 22px 18px; }
 .practice-question h1 { margin: 12px 0 22px; font-family: var(--mono); font-size: 22px; line-height: 1.45; white-space: pre-wrap; overflow-wrap: anywhere; }
 .choice-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-bottom: 14px; }
@@ -173,12 +173,6 @@ p { color: var(--sub); line-height: 1.65; }
 .order-token { padding: 9px 10px; border: 1px solid #d9d0f3; border-radius: 10px; color: var(--ink); background: #fff; font-family: var(--mono); font-size: 12px; }
 .order-token:hover { border-color: var(--red); }
 .order-token:disabled { opacity: .38; cursor: not-allowed; }
-.practice-note { padding: 18px 14px; color: var(--ink); background: linear-gradient(180deg, #fff5ed, #edf2ff); }
-.practice-note .eyebrow { color: var(--red-d); }
-.practice-note h2 { margin: 18px 0 7px; font-family: var(--mono); font-size: 17px; overflow-wrap: anywhere; }
-.practice-note p, .practice-note small { color: var(--sub); font-size: 11px; }
-.progress-track { height: 6px; margin: 32px 0 9px; overflow: hidden; border-radius: 999px; background: #e5def7; }
-.progress-track span { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--red), var(--blue)); }
 .feedback { margin-top: 14px; padding: 12px; border-radius: 12px; border-left: 4px solid; }
 .feedback-good { border-color: var(--ok); background: #e8f8ef; }
 .feedback-bad { border-color: var(--bad); background: var(--red-l); }
@@ -232,7 +226,6 @@ p { color: var(--sub); line-height: 1.65; }
   .detail-grid, .practice-card, .board-layout { grid-template-columns: 1fr; }
   .detail-aside { order: -1; }
   .aside-sticky { position: static; }
-  .practice-note { border-top: 1px solid var(--line); }
   .knowledge-list, .weak-grid { grid-template-columns: 1fr 1fr; }
 }
 
